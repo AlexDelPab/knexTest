@@ -1,9 +1,11 @@
+import 'reflect-metadata';
+import { diContainer } from './inversify.config';
 import express, { Express } from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 import config from '../config.json';
-import routes from '../routes';
+import routes from './routes';
 
 const app: Express = express();
 

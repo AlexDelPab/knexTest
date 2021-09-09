@@ -1,7 +1,9 @@
+import { injectable } from "inversify";
 import { ICompanyRepository } from "../contracts/companyRepository.i";
 import { knex } from "../data/knex";
 import { Company } from "../entities/company";
 
+@injectable()
 export class CompanyRepository implements ICompanyRepository {
     GetCompanies() {
         return knex('companies').select();
