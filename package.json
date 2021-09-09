@@ -32,6 +32,10 @@
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "helmet": "^4.6.0",
-    "morgan": "^1.10.0"
+    "inversify": "^5.1.1",
+    "knex": "^0.95.11",
+    "morgan": "^1.10.0",
+    "reflect-metadata": "^0.1.13",
+    "tedious": "^12.2.0"
   }
 }

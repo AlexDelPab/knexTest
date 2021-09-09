@@ -1,4 +1,4 @@
-import app from './server';
+import app from './expressServer';
 import config from '../config.json';
 
 // Start the application by listening to specific port

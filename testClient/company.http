@@ -1,0 +1,11 @@
+POST http://localhost:8080/companies
+content-type: application/json
+
+{
+    "name": "asdf123",
+    "address": "test",
+    "country": "AUT"
+}
+
+###
+GET http://localhost:8080/companies

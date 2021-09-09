@@ -3,7 +3,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 import config from '../config.json';
-import { getFilesWithKeyword } from './utils/getFilesWithKeyword';
+import routes from '../routes';
 
 const app: Express = express();
 
@@ -29,11 +29,8 @@ if (process.env.NODE_ENV === 'production' || config.NODE_ENV === 'production') {
 /************************************************************************************
  *                               Register all routes
  ***********************************************************************************/
+app.use("/", routes);
 
-getFilesWithKeyword('router', __dirname + '/app').forEach((file: string) => {
-  const { router } = require(file);
-  app.use('/', router);
-})
 /************************************************************************************
  *                               Express Error Handling
  ***********************************************************************************/
