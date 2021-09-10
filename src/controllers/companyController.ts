@@ -1,25 +1,21 @@
-import { Router, Request, Response } from "express";
+import { Request, Response } from "express";
 import { inject, injectable } from "inversify";
+import { controller, httpGet, httpPost } from "inversify-express-utils";
 import { ICompanyRepository } from "../contracts/companyRepository.i";
 import { TYPES } from "../inversify.types";
 
-export const router: Router = Router();
-
-@injectable()
-class CompanyController {
-    @inject(TYPES.ICompanyRepository) private _repository!: ICompanyRepository;
-
-    constructor() {
-        router.get('/', this.getCompanies);
-        router.get('/:id', this.getCompany);
-        router.post('/', this.createCompany);
+@controller("/companies")
+export class CompanyController {
+    constructor(@inject(TYPES.ICompanyRepository) private _repository: ICompanyRepository) {
     }
 
+    @httpGet("/")
     async getCompanies(req: Request, res: Response) {
         const companies = await this._repository.GetCompanies();
         res.status(200).json(companies);
     }
 
+    @httpGet("/:id")
     async getCompany(req: Request, res: Response) {
         const companies = await this._repository.GetCompany(parseInt(req.params.id));
 
@@ -30,6 +26,7 @@ class CompanyController {
         }
     }
 
+    @httpPost("/")
     async createCompany(req: Request, res: Response) {
         const company = req.body;
         console.log(company);
@@ -37,7 +34,3 @@ class CompanyController {
         res.status(201).json({ id });
     }
 }
-
-new CompanyController();
-
-export default router;

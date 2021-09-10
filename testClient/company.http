@@ -2,8 +2,8 @@ POST http://localhost:8080/companies
 content-type: application/json
 
 {
-    "name": "asdf123",
-    "address": "test",
+    "name": "Created",
+    "address": "Testaddress",
     "country": "AUT"
 }
 

@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import app from './expressServer';
 import config from '../config.json';
 
