@@ -6,14 +6,13 @@ import cors from 'cors';
 import config from '../config.json';
 import { InversifyExpressServer } from 'inversify-express-utils';
 import "./controllers/companyController";
-import { Server } from 'http';
 
 
 class ExpressServer {
   _server: InversifyExpressServer;
 
   constructor() {
-    this._server = new InversifyExpressServer(diContainer);
+    this._server = new InversifyExpressServer(diContainer, null, { rootPath: "/api/v1"});
   }
 
   init(): express.Application {

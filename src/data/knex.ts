@@ -1,4 +1,4 @@
-export const knex = require('knex')({
+export const db = require('knex')({
     client: 'mssql',
     connection: {
         user: 'sa',
@@ -9,4 +9,4 @@ export const knex = require('knex')({
             port: 1433
         }
     }
-});
+});;

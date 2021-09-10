@@ -1,4 +1,4 @@
-POST http://localhost:8080/companies
+POST http://localhost:8080/api/v1/companies
 content-type: application/json
 
 {
@@ -8,4 +8,22 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:8080/companies
+PUT http://localhost:8080/api/v1/companies/13
+content-type: application/json
+
+{
+    "name": "Updated",
+    "address": "Testaddress",
+    "country": "AUT"
+}
+
+###
+DELETE  http://localhost:8080/api/v1/companies/7
+content-type: application/json
+
+###
+GET http://localhost:8080/api/v1/companies
+
+
+###
+GET http://localhost:8080/api/v1/companies/employee/1
